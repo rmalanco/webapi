@@ -2,6 +2,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace webapi.Controllers;
 
+// Verbos HTTP:
+
+// Get -> para visualizar registros
+// Post -> para registrar un nuevo registro
+// Delete -> para eliminar un registro
+// Put -> para actualizar un registro
+// Patch -> para actualizar un registro parcialmente
+
 [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
