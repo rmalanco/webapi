@@ -45,7 +45,7 @@ public class WeatherForecastController : ControllerBase
     [Route("[action]")] // se utiliza solo el tipo de accion a realizar como en este ejemplo es get
     public IEnumerable<WeatherForecast> Get()
     {
-        return ListWeatherForecast;
+        return ListWeatherForecast; // se retorna la lista de registros
     }
 
     [HttpPost] // sirve para agregar un registro 
