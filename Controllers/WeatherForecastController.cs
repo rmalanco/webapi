@@ -40,11 +40,12 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpGet(Name = "GetWeatherForecast")] // GET: WeatherForecast sirve para visualizar los registros
-    [Route("get/WeatherForecast")] // se agrega nueva ruta de acceso para el get
-    [Route("get/WeatherForecast2")] // se agrega nueva ruta de acceso para el get
-    [Route("[action]")] // se utiliza solo el tipo de accion a realizar como en este ejemplo es get
+    // [Route("get/WeatherForecast")] // se agrega nueva ruta de acceso para el get
+    // [Route("get/WeatherForecast2")] // se agrega nueva ruta de acceso para el get
+    // [Route("[action]")] // se utiliza solo el tipo de accion a realizar como en este ejemplo es get
     public IEnumerable<WeatherForecast> Get()
     {
+        _logger.LogInformation("Retornando lista de registros de WeatherForecast");
         return ListWeatherForecast; // se retorna la lista de registros
     }
 
