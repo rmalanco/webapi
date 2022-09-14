@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\GenesisMX\\OneDrive\\Proyectos\\webapi\\webapi.csproj": {}
+    "c:\\Users\\GenesisMX\\OneDrive\\Proyectos\\webapi\\webapi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\GenesisMX\\OneDrive\\Proyectos\\webapi\\webapi.csproj": {
+    "c:\\Users\\GenesisMX\\OneDrive\\Proyectos\\webapi\\webapi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\GenesisMX\\OneDrive\\Proyectos\\webapi\\webapi.csproj",
+        "projectUniqueName": "c:\\Users\\GenesisMX\\OneDrive\\Proyectos\\webapi\\webapi.csproj",
         "projectName": "webapi",
-        "projectPath": "C:\\Users\\GenesisMX\\OneDrive\\Proyectos\\webapi\\webapi.csproj",
+        "projectPath": "c:\\Users\\GenesisMX\\OneDrive\\Proyectos\\webapi\\webapi.csproj",
         "packagesPath": "C:\\Users\\GenesisMX\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\GenesisMX\\OneDrive\\Proyectos\\webapi\\obj\\",
+        "outputPath": "c:\\Users\\GenesisMX\\OneDrive\\Proyectos\\webapi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
