@@ -19,17 +19,28 @@ public class helloWorldController : ControllerBase
 
     private readonly ILogger<helloWorldController> _logger;
 
+    TareasContext dbcontext;
 
-    public helloWorldController(ILogger<helloWorldController> logger, IHelloWorldService helloWorldService)
+    public helloWorldController(ILogger<helloWorldController> logger, IHelloWorldService helloWorldService, TareasContext db)
     {
         _logger = logger;
         _helloWorldService = helloWorldService;
+        dbcontext = db;
     }
 
     [HttpGet]
+    [Route("createdb")]
     public ActionResult Get()
     {
         _logger.LogInformation("Retornando mensaje de hello world");
         return Ok(_helloWorldService.GetHelloWorld());
+    }
+
+    [HttpGet]
+
+    public ActionResult createDB()
+    {
+        dbcontext.Database.EnsureCreated();
+        return Ok();
     }
 }

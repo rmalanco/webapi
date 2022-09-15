@@ -2,7 +2,7 @@ using webapi;
 using webapi.Models;
 
 namespace webapi.Services;
-public class categoriaService
+public class categoriaService : ICategoriaService
 {
     TareasContext _context;
 
@@ -21,9 +21,36 @@ public class categoriaService
         _context.Categorias.Add(categoria);
         await _context.SaveChangesAsync();
     }
+
+    public async Task Update(Guid id, Categoria categoria)
+    {
+        var categoriaActual = _context.Categorias.Find(id);
+        if (categoriaActual != null)
+        {
+            categoriaActual.Nombre = categoria.Nombre;
+            categoriaActual.Descripcion = categoria.Descripcion;
+            categoriaActual.Peso = categoria.Peso;
+
+            await _context.SaveChangesAsync();
+        }
+    }
+
+    public async Task Delete(Guid id)
+    {
+        var categoriaActual = _context.Categorias.Find(id);
+
+        if (categoriaActual != null)
+        {
+            _context.Remove(categoriaActual);
+            await _context.SaveChangesAsync();
+        }
+    }
 }
 
-public interface IcategoriaService
+public interface ICategoriaService
 {
-
+    IEnumerable<Categoria> Get();
+    Task Save(Categoria categoria);
+    Task Update(Guid id, Categoria categoria);
+    Task Delete(Guid id);
 }

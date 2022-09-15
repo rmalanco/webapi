@@ -1,3 +1,6 @@
+using webapi;
+using webapi.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(); // se agrega el servicio de swagger
+
 /* 
 
     swagger: Se utiliza 
@@ -13,13 +17,17 @@ builder.Services.AddSwaggerGen(); // se agrega el servicio de swagger
     la ruta de acceso es: /swagger/index.html
 
 */
+builder.Services.AddSqlServer<TareasContext>("Data Source=localhost\\SQLEXPRESS;Initial Catalog=TareasDB;User Id=sa;Password=12345678");
+// builder.Services.AddScoped<IHelloWorldService, helloWorldService>(); 
+builder.Services.AddScoped<IHelloWorldService>(p => new helloWorldService());
+builder.Services.AddScoped<ICategoriaService, categoriaService>();
+builder.Services.AddScoped<ITareasService, TareasService>();
 
-// builder.Services.AddScoped<IHelloWorldService, helloWorldService>(); // se inyecta la dependencia con el metodo "AddScoped" y se le pasa como parametro la interfaz y la clase que se va a inyectar
-builder.Services.AddScoped<IHelloWorldService>(p => new helloWorldService()); // se inyecta la dependencia con el metodo "AddScoped" y se le pasa como parametro la interfaz y la clase que se va a inyectar
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
